@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A secure rate-limited Express.js server with environment configuration and input validation.",
   "private": true,
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "jest",
