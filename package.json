@@ -1,26 +1,44 @@
 {
   "name": "tmpxmt1mnp0",
   "version": "1.0.0",
-  "description": "",
+  "description": "A secure rate-limited Express.js server with environment configuration and input validation.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "build": "echo 'No build step required'",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "publish": "echo 'Publishing not automated; run npm publish manually'"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/juninmd/jules.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "express",
+    "rate-limit",
+    "security",
+    "validation"
+  ],
+  "author": "Juninmd",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "security": {
+    "policy": "https://github.com/juninmd/jules/security/policy"
+  },
+  "readme": "README.md",
   "bugs": {
     "url": "https://github.com/juninmd/jules/issues"
   },
   "homepage": "https://github.com/juninmd/jules#readme",
   "devDependencies": {
     "jest": "^29.7.0",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "cors": "^2.8.5",
