@@ -28,6 +28,6 @@
     "express": "^5.2.1",
     "express-rate-limit": "^6.0.0",
     "express-validator": "^7.3.2",
-    "helmet": "^6.0.0"
+    "helmet": "^8.2.0"
   }
 }
