@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "security-team"
+    labels:
+      - "dependencies"
+      - "automated-pr"
+    assignees:
+      - "dependabot[bot]"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+    ignore:
+      - dependency-name: "*"
+        versions: [">= 100.0.0"]  # Ignore major version updates that might break compatibility
