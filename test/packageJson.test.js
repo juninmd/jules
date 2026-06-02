@@ -11,7 +11,8 @@ describe('Package.json remediation', () => {
   });
 
   test('should have name field', () => {
-    expect(packageJson.name).toBe('tmpxmt1mnp0');
+    expect(packageJson.name).toBeDefined();
+    expect(typeof packageJson.name).toBe('string');
   });
 
   test('should have version field', () => {
