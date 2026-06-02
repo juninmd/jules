@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:cov": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "test:cov": "jest --coverage",
     "build": "echo \"Building...\"",
     "start": "node src/server.js"
   },
