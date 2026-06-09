@@ -319,6 +319,7 @@
   "private": true,
   "private": true,
   "private": true,
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "jest",
