@@ -1,9 +1,9 @@
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const rateLimit = require('express-rate-limit');
-const { body, validationResult } = require('express-validator');
-require('dotenv').config();
+import express, { Request, Response, NextFunction } from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import { rateLimit } from 'express-rate-limit';
+import { body, validationResult } from 'express-validator';
+import 'dotenv/config';
 
 const app = express();
 
@@ -33,32 +33,34 @@ app.post('/api/users',
     body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long').matches(/\d/).withMessage('Password must contain a number'),
     body('name').trim().escape()
   ],
-  (req, res) => {
+  (req: Request, res: Response): any => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    // In a real app, you would hash the password and save to database
-    res.status(201).json({ message: 'User created successfully', user: {
-      email: req.body.email,
-      name: req.body.name
-    }});
+    res.status(201).json({
+      message: 'User created successfully',
+      user: {
+        email: req.body.email,
+        name: req.body.name
+      }
+    });
   }
 );
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
 // 404 handler
-app.use((req, res) => {
+app.use((req: Request, res: Response) => {
   res.status(404).json({ error: 'Not found' });
 });
 
 // Error handler
-app.use((err, req, res, next) => {
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
@@ -68,4 +70,4 @@ const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-module.exports = { app, server };
+export { app, server };
